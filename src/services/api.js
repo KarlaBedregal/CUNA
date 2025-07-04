@@ -95,8 +95,5 @@ export default {
     return api.get('/api/users/')
   },
   
-  // Endpoint de bienvenida
-  getWelcome() {
-    return api.get('/')
-  }
+  
 }
