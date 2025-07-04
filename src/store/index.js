@@ -126,29 +126,34 @@ export default createStore({
       }
     },
     
-    async fetchTeachers({ commit }) {
-      try {
-        commit('SET_LOADING', true)
-        const response = await api.getTeachers()
-        commit('SET_TEACHERS', response.data.data)
-      } catch (error) {
-        commit('SET_ERROR', error.response?.data?.message || 'Error al cargar docentes')
-      } finally {
-        commit('SET_LOADING', false)
-      }
-    },
+      async fetchTeachers({ commit }) {
+    try {
+      commit('SET_LOADING', true)
+      const response = await api.getTeachers()
+      console.log('🧪 Docentes response.data:', response.data)
+      // Usa la línea correcta según el formato:
+      commit('SET_TEACHERS', response.data) // ← probablemente así
+    } catch (error) {
+      console.error('❌ Error docentes:', error.response?.data || error)
+      commit('SET_ERROR', 'Error al cargar docentes')
+    } finally {
+      commit('SET_LOADING', false)
+    }
+  },
     
     async fetchCourses({ commit }) {
-      try {
-        commit('SET_LOADING', true)
-        const response = await api.getCourses()
-        commit('SET_COURSES', response.data.data)
-      } catch (error) {
-        commit('SET_ERROR', error.response?.data?.message || 'Error al cargar cursos')
-      } finally {
-        commit('SET_LOADING', false)
-      }
-    }
+  try {
+    commit('SET_LOADING', true)
+    const response = await api.getCourses()
+    console.log('🧪 Cursos response.data:', response.data)
+    commit('SET_COURSES', response.data) // ← probablemente así
+  } catch (error) {
+    console.error('❌ Error cursos:', error.response?.data || error)
+    commit('SET_ERROR', 'Error al cargar cursos')
+  } finally {
+    commit('SET_LOADING', false)
+  }
+}
   },
   
   getters: {
