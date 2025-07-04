@@ -22,25 +22,27 @@
           </div>
         </div>
         
-        <div class="col-md-3 mb-3">
-          <div class="card bg-success text-white">
-            <div class="card-body">
-              <h5 class="card-title">👨‍🏫 Docentes</h5>
-              <p class="card-text display-4">{{ teachers.length }}</p>
-              <button class="btn btn-light" @click="fetchTeachers">Cargar</button>
-            </div>
+        <!-- Docentes -->
+      <div class="col-md-3 mb-3">
+        <div class="card bg-success text-white">
+          <div class="card-body">
+            <h5 class="card-title">👨‍🏫 Docentes</h5>
+            <p class="card-text display-4">{{ teachers.length }}</p>
+            <router-link to="/teachers" class="btn btn-light w-100">Gestionar</router-link>
           </div>
         </div>
+      </div>
         
-        <div class="col-md-3 mb-3">
-          <div class="card bg-info text-white">
-            <div class="card-body">
-              <h5 class="card-title">📚 Cursos</h5>
-              <p class="card-text display-4">{{ courses.length }}</p>
-              <button class="btn btn-light" @click="fetchCourses">Cargar</button>
-            </div>
+        <!-- Cursos -->
+      <div class="col-md-3 mb-3">
+        <div class="card bg-info text-white">
+          <div class="card-body">
+            <h5 class="card-title">📚 Cursos</h5>
+            <p class="card-text display-4">{{ courses.length }}</p>
+            <router-link to="/courses" class="btn btn-light w-100">Gestionar</router-link>
           </div>
         </div>
+      </div>
         
         <div class="col-md-3 mb-3">
           <div class="card bg-warning text-white">
