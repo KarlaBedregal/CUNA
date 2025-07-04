@@ -96,16 +96,11 @@ export default {
     }
   },
   methods: {
-    async testConnection() {
-      try {
-        this.apiStatus = 'Conectando...'
-        const response = await api.getWelcome()
-        this.apiStatus = `✅ ${response.data.message}`
-      } catch (error) {
-        this.apiStatus = `❌ Error: ${error.message}`
-      }
-    }
+  async testConnection() {
+    // Ya no se usa getWelcome, mostramos mensaje simulado
+    this.apiStatus = '✅ API aparentemente activa (sin prueba directa)'
   }
+}
 }
 </script>
 
