@@ -104,7 +104,9 @@ export default {
   },
   
   async created() {
-    await this.fetchStudents()
+  await this.fetchStudents()
+  await this.fetchTeachers()
+  await this.fetchCourses()
   }
 }
 </script>
