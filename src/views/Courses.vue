@@ -1,16 +1,18 @@
 <template>
-  <div class="container mt-4">
-    <h2 class="mb-4">📚 Lista de Cursos</h2>
-
-    <div v-if="loading" class="alert alert-info">Cargando cursos...</div>
+  <div>
+    <h2>Lista de Cursos</h2>
+    <div v-if="loading">Cargando cursos...</div>
     <div v-if="error" class="alert alert-danger">{{ error }}</div>
-
-    <table v-if="courses.length" class="table table-striped">
+    <table class="table" v-if="courses.length">
       <thead>
         <tr>
           <th>#</th>
           <th>Nombre</th>
           <th>Código</th>
+          <th>Créditos</th>
+          <th>Año</th>
+          <th>Bimestre</th>
+          <th>Estado</th>
         </tr>
       </thead>
       <tbody>
@@ -18,6 +20,14 @@
           <td>{{ index + 1 }}</td>
           <td>{{ course.name }}</td>
           <td>{{ course.code }}</td>
+          <td>{{ course.credits }}</td>
+          <td>{{ course.year }}</td>
+          <td>{{ course.bimester }}</td>
+          <td>
+            <span :class="course.status ? 'text-success' : 'text-danger'">
+              {{ course.status ? 'Activo' : 'Inactivo' }}
+            </span>
+          </td>
         </tr>
       </tbody>
     </table>
