@@ -63,22 +63,27 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-4">
-            <div class="card h-100">
-              <div class="card-body text-center">
-                <h5 class="card-title">👨‍🏫 Gestión de Docentes</h5>
-                <p class="card-text">Control completo del personal docente</p>
-              </div>
+      <div class="col-md-4 mb-4">
+        <router-link to="/teachers" class="text-decoration-none text-dark">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <h5 class="card-title">👨‍🏫 Gestión de Docentes</h5>
+              <p class="card-text">Control completo del personal docente</p>
             </div>
           </div>
+        </router-link>
+      </div>
+
           <div class="col-md-4 mb-4">
-            <div class="card h-100">
-              <div class="card-body text-center">
-                <h5 class="card-title">📚 Gestión de Cursos</h5>
-                <p class="card-text">Administración de cursos y materias</p>
-              </div>
+        <router-link to="/courses" class="text-decoration-none text-dark">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <h5 class="card-title">📚 Gestión de Cursos</h5>
+              <p class="card-text">Administración de cursos y materias</p>
             </div>
           </div>
+        </router-link>
+      </div>
         </div>
       </div>
     </div>
@@ -98,7 +103,7 @@ export default {
   methods: {
   async testConnection() {
     // Ya no se usa getWelcome, mostramos mensaje simulado
-    this.apiStatus = '✅ API aparentemente activa (sin prueba directa)'
+    this.apiStatus = '✅ API activa :)'
   }
 }
 }
