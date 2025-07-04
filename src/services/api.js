@@ -7,6 +7,7 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
+  timeout: 10000
 })
 
 // Interceptor para agregar token automáticamente
@@ -92,5 +93,10 @@ export default {
   // Usuarios
   getUsers() {
     return api.get('/api/users/')
+  },
+  
+  // Endpoint de bienvenida
+  getWelcome() {
+    return api.get('/')
   }
 }

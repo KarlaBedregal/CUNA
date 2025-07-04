@@ -1,7 +1,7 @@
-<!-- src/views/Dashboard.vue -->
+<!-- filepath: /home/karla/KARLITA/Cuna API unsa/cuna-frontend/src/views/DashboardView.vue -->
 <template>
-  <div class="dashboard">
-    <nav-bar />
+  <div class="dashboard-view">
+    <navbar-component />
     
     <div class="container mt-4">
       <div class="row">
@@ -47,7 +47,7 @@
             <div class="card-body">
               <h5 class="card-title">📊 Estado</h5>
               <p class="card-text">{{ loading ? 'Cargando...' : 'Activo' }}</p>
-              <button class="btn btn-light" disabled>Online</button>
+              <span class="badge bg-light text-dark">Online</span>
             </div>
           </div>
         </div>
@@ -87,12 +87,12 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import NavBar from '@/components/common/NavBar.vue'
+import NavbarComponent from '@/components/common/NavbarComponent.vue'
 
 export default {
-  name: 'Dashboard',
+  name: 'DashboardView',
   components: {
-    NavBar
+    NavbarComponent
   },
   
   computed: {

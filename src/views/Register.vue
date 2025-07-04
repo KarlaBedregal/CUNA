@@ -1,4 +1,4 @@
-<!-- filepath: /home/karla/KARLITA/Cuna API unsa/cuna-frontend/src/views/Register.vue -->
+<!-- filepath: /home/karla/KARLITA/Cuna API unsa/cuna-frontend/src/views/RegisterView.vue -->
 <template>
   <div class="register-container">
     <div class="container">
@@ -65,6 +65,17 @@
                   />
                 </div>
                 
+                <div class="mb-3">
+                  <label for="password_confirm" class="form-label">Confirmar Contraseña</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password_confirm"
+                    v-model="form.password_confirm"
+                    required
+                  />
+                </div>
+                
                 <div class="d-grid">
                   <button
                     type="submit"
@@ -96,7 +107,7 @@
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  name: 'Register',
+  name: 'RegisterView',
   data() {
     return {
       form: {
@@ -104,7 +115,8 @@ export default {
         email: '',
         first_name: '',
         last_name: '',
-        password: ''
+        password: '',
+        password_confirm: ''
       }
     }
   },

@@ -1,4 +1,4 @@
-<!-- src/components/common/NavBar.vue -->
+<!-- filepath: /home/karla/KARLITA/Cuna API unsa/cuna-frontend/src/components/common/NavbarComponent.vue -->
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
@@ -57,7 +57,7 @@
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  name: 'NavBar',
+  name: 'NavbarComponent',
   
   computed: {
     ...mapGetters(['isAuthenticated', 'currentUser'])

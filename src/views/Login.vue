@@ -1,4 +1,4 @@
-<!-- src/views/Login.vue -->
+<!-- filepath: /home/karla/KARLITA/Cuna API unsa/cuna-frontend/src/views/LoginView.vue -->
 <template>
   <div class="login-container">
     <div class="container">
@@ -63,7 +63,7 @@
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  name: 'Login',
+  name: 'LoginView',
   data() {
     return {
       form: {

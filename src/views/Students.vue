@@ -1,7 +1,7 @@
-<!-- filepath: /home/karla/KARLITA/Cuna API unsa/cuna-frontend/src/views/Students.vue -->
+<!-- filepath: /home/karla/KARLITA/Cuna API unsa/cuna-frontend/src/views/StudentsView.vue -->
 <template>
-  <div class="students">
-    <nav-bar />
+  <div class="students-view">
+    <navbar-component />
     
     <div class="container mt-4">
       <div class="row">
@@ -72,12 +72,12 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import NavBar from '@/components/common/NavBar.vue'
+import NavbarComponent from '@/components/common/NavbarComponent.vue'
 
 export default {
-  name: 'Students',
+  name: 'StudentsView',
   components: {
-    NavBar
+    NavbarComponent
   },
   
   computed: {

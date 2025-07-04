@@ -1,11 +1,11 @@
-<!-- filepath: /home/karla/KARLITA/Cuna API unsa/cuna-frontend/src/views/Home.vue -->
+<!-- filepath: /home/karla/KARLITA/Cuna API unsa/cuna-frontend/src/views/HomeView.vue -->
 <template>
-  <div class="home">
+  <div class="home-view">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="#">
+        <router-link class="navbar-brand" to="/">
           🎓 CUNA UNSA
-        </a>
+        </router-link>
         <div class="navbar-nav ms-auto">
           <router-link to="/login" class="nav-link">Iniciar Sesión</router-link>
           <router-link to="/register" class="nav-link">Registro</router-link>
@@ -17,24 +17,35 @@
       <div class="container">
         <div class="row align-items-center min-vh-100">
           <div class="col-md-6">
-            <h1 class="display-4 fw-bold text-primary">
+            <h1 class="display-4 fw-bold text-white">
               🎓 Bienvenido a CUNA UNSA
             </h1>
-            <p class="lead">
+            <p class="lead text-white">
               Sistema de gestión académica para la Universidad Nacional de San Agustín
             </p>
             <div class="mt-4">
               <router-link to="/login" class="btn btn-primary btn-lg me-3">
                 Iniciar Sesión
               </router-link>
-              <router-link to="/register" class="btn btn-outline-primary btn-lg">
+              <router-link to="/register" class="btn btn-outline-light btn-lg">
                 Registrarse
               </router-link>
             </div>
           </div>
           <div class="col-md-6">
             <div class="text-center">
-              <img src="../assets/logo.png" alt="Vue logo" class="img-fluid" style="max-width: 300px;">
+              <div class="welcome-card">
+                <h3 class="text-white">Sistema Académico</h3>
+                <p class="text-white">Gestión integral de estudiantes, docentes y cursos</p>
+                <div class="mt-3">
+                  <button class="btn btn-outline-light" @click="testConnection">
+                    🔗 Probar Conexión API
+                  </button>
+                </div>
+                <div v-if="apiStatus" class="mt-2 alert alert-info">
+                  {{ apiStatus }}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -75,18 +86,42 @@
 </template>
 
 <script>
+import api from '@/services/api'
+
 export default {
-  name: 'Home'
+  name: 'HomeView',
+  data() {
+    return {
+      apiStatus: null
+    }
+  },
+  methods: {
+    async testConnection() {
+      try {
+        this.apiStatus = 'Conectando...'
+        const response = await api.getWelcome()
+        this.apiStatus = `✅ ${response.data.message}`
+      } catch (error) {
+        this.apiStatus = `❌ Error: ${error.message}`
+      }
+    }
+  }
 }
 </script>
 
 <style scoped>
 .hero-section {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
   min-height: 100vh;
   display: flex;
   align-items: center;
+}
+
+.welcome-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
 }
 
 .features-section {
