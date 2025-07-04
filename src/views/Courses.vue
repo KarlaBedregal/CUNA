@@ -1,13 +1,26 @@
 <template>
-  <div>
-    <h2>Lista de Cursos</h2>
-    <div v-if="loading">Cargando cursos...</div>
+  <div class="container mt-4">
+    <h2 class="mb-4">📚 Lista de Cursos</h2>
+
+    <div v-if="loading" class="alert alert-info">Cargando cursos...</div>
     <div v-if="error" class="alert alert-danger">{{ error }}</div>
-    <ul v-if="courses.length">
-      <li v-for="course in courses" :key="course.id">
-        {{ course.name }} - {{ course.code }}
-      </li>
-    </ul>
+
+    <table v-if="courses.length" class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Código</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(course, index) in courses" :key="course.id">
+          <td>{{ index + 1 }}</td>
+          <td>{{ course.name }}</td>
+          <td>{{ course.code }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 

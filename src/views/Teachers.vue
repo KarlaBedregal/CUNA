@@ -1,13 +1,26 @@
 <template>
-  <div>
-    <h2>Lista de Docentes</h2>
-    <div v-if="loading">Cargando docentes...</div>
+  <div class="container mt-4">
+    <h2 class="mb-4">👨‍🏫 Lista de Docentes</h2>
+
+    <div v-if="loading" class="alert alert-info">Cargando docentes...</div>
     <div v-if="error" class="alert alert-danger">{{ error }}</div>
-    <ul v-if="teachers.length">
-      <li v-for="teacher in teachers" :key="teacher.id">
-        {{ teacher.name }} - {{ teacher.email }}
-      </li>
-    </ul>
+
+    <table v-if="teachers.length" class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(teacher, index) in teachers" :key="teacher.id">
+          <td>{{ index + 1 }}</td>
+          <td>{{ teacher.name }}</td>
+          <td>{{ teacher.email }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -27,3 +40,4 @@ export default {
   }
 }
 </script>
+
