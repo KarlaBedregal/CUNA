@@ -88,6 +88,9 @@ export default {
   createTeacher(data) {
   return api.post('/api/teachers/', data)
   },
+  updateTeacher(id, teacher) {
+  return api.put(`/api/teachers/${id}/`, teacher)
+  },
   deleteTeacher(id) {
   return api.delete(`/api/teachers/${id}/`)
   },

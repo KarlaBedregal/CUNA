@@ -3,14 +3,15 @@
     <div class="card shadow">
       <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
         <h4>👨‍🏫 Lista de Docentes</h4>
-        <button class="btn btn-light btn-sm" @click="showForm = !showForm">
+        <button class="btn btn-light btn-sm" @click="toggleForm">
           {{ showForm ? 'Cancelar' : '➕ Agregar Docente' }}
         </button>
       </div>
 
+      <!-- FORMULARIO -->
       <div v-if="showForm" class="card-body border border-success p-3 mb-3">
-        <h5>Nuevo Docente</h5>
-        <form @submit.prevent="createTeacher">
+        <h5>{{ editingTeacher ? 'Editar Docente' : 'Nuevo Docente' }}</h5>
+        <form @submit.prevent="submitForm">
           <div class="row">
             <div class="col-md-4 mb-2">
               <input v-model="form.names" type="text" class="form-control" placeholder="Nombres" required>
@@ -28,10 +29,13 @@
               <input v-model="form.phone" type="text" class="form-control" placeholder="Teléfono">
             </div>
           </div>
-          <button type="submit" class="btn btn-success">Guardar</button>
+          <button type="submit" class="btn btn-success">
+            {{ editingTeacher ? 'Actualizar' : 'Guardar' }}
+          </button>
         </form>
       </div>
 
+      <!-- TABLA -->
       <div class="card-body">
         <div v-if="loading">Cargando docentes...</div>
         <div v-if="error" class="alert alert-danger">{{ error }}</div>
@@ -77,6 +81,7 @@ export default {
   data() {
     return {
       showForm: false,
+      editingTeacher: null,
       form: {
         names: '',
         father_surname: '',
@@ -95,16 +100,37 @@ export default {
   methods: {
     ...mapActions(['fetchTeachers']),
 
-    async createTeacher() {
+    toggleForm() {
+      this.resetForm()
+      this.showForm = !this.showForm
+    },
+
+    resetForm() {
+      this.editingTeacher = null
+      this.form = {
+        names: '',
+        father_surname: '',
+        mother_surname: '',
+        email: '',
+        phone: ''
+      }
+    },
+
+    async submitForm() {
       try {
-        const response = await api.createTeacher(this.form)
-        console.log('✅ Docente creado:', response.data)
-        this.showForm = false
-        this.form = { names: '', father_surname: '', mother_surname: '', email: '', phone: '' }
+        if (this.editingTeacher) {
+          await api.updateTeacher(this.editingTeacher.id, this.form)
+          console.log('✏️ Docente actualizado')
+        } else {
+          await api.createTeacher(this.form)
+          console.log('✅ Docente creado')
+        }
         this.fetchTeachers()
+        this.showForm = false
+        this.resetForm()
       } catch (err) {
-        console.error('❌ Error al crear docente:', err)
-        alert('No se pudo crear el docente')
+        console.error('❌ Error al guardar docente:', err)
+        alert('No se pudo guardar el docente')
       }
     },
 
@@ -119,8 +145,15 @@ export default {
     },
 
     editTeacher(teacher) {
-      alert(`Editar docente: ${teacher.names}`)
-      // Aquí se puede abrir un modal o redirigir a otro formulario
+      this.showForm = true
+      this.editingTeacher = teacher
+      this.form = {
+        names: teacher.names,
+        father_surname: teacher.father_surname,
+        mother_surname: teacher.mother_surname,
+        email: teacher.email,
+        phone: teacher.phone
+      }
     }
   }
 }
