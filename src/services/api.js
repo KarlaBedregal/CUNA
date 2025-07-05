@@ -85,7 +85,9 @@ export default {
   getTeachers() {
     return api.get('/api/teachers/')
   },
-  
+  createTeacher(data) {
+  return api.post('/api/teachers/', data)
+  },
   // Cursos
   getCourses() {
     return api.get('/api/courses/')
