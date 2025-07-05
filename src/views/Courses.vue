@@ -30,6 +30,8 @@
                 <option disabled value="">Selecciona Bimestre</option>
                 <option value="1">Primer Bimestre</option>
                 <option value="2">Segundo Bimestre</option>
+                <option value="3">Tercer Bimestre</option>
+                <option value="4">Cuarto Bimestre</option>
               </select>
             </div>
             <div class="col-md-12 mb-2">
