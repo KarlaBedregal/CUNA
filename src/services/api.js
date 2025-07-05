@@ -98,7 +98,15 @@ export default {
   getCourses() {
     return api.get('/api/courses/')
   },
-  
+  createCourse(data) {
+  return api.post('/api/courses/', data)
+  },
+  updateCourse(id, data) {
+    return api.put(`/api/courses/${id}/`, data)
+  },
+  deleteCourse(id) {
+    return api.delete(`/api/courses/${id}/`)
+  },
   // Usuarios
   getUsers() {
     return api.get('/api/users/')
