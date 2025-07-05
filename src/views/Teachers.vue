@@ -28,6 +28,20 @@
             <div class="col-md-6 mb-2">
               <input v-model="form.phone" type="text" class="form-control" placeholder="Teléfono">
             </div>
+            <div class="col-md-6 mb-2">
+              <div class="form-check">
+                <input v-model="form.show_phone" class="form-check-input" type="checkbox" id="showPhone">
+                <label class="form-check-label" for="showPhone">Mostrar Teléfono</label>
+              </div>
+            </div>
+
+            <!-- Checkbox: Estado del docente -->
+            <div class="col-md-6 mb-2">
+              <div class="form-check">
+                <input v-model="form.status" class="form-check-input" type="checkbox" id="status">
+                <label class="form-check-label" for="status">Activo</label>
+              </div>
+            </div>
           </div>
           <button type="submit" class="btn btn-success">
             {{ editingTeacher ? 'Actualizar' : 'Guardar' }}
@@ -87,7 +101,9 @@ export default {
         father_surname: '',
         mother_surname: '',
         email: '',
-        phone: ''
+        phone: '',
+        show_phone: false,
+        status: true
       }
     }
   },
@@ -152,7 +168,9 @@ export default {
         father_surname: teacher.father_surname,
         mother_surname: teacher.mother_surname,
         email: teacher.email,
-        phone: teacher.phone
+        phone: teacher.phone,
+        show_phone: teacher.show_phone,
+        status: teacher.status
       }
     }
   }
