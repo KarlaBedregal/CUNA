@@ -15,7 +15,7 @@
     <div class="hero-section">
       <div class="container">
         <!-- HERO + SISTEMA ACADÉMICO -->
-        <div class="row align-items-center" style="min-height: 75vh;">
+        <div class="row align-items-center py-5">
           <div class="col-md-6">
             <h1 class="display-4 fw-bold text-white">
               🎓 Bienvenido a CUNA UNSA
@@ -139,7 +139,7 @@ export default {
 .footer {
   background-color: #333;
   color: #eee;
-  font-size: 0.95rem;
+  font-size: 0.99rem;
   padding-top: 20px;
   padding-bottom: 20px;
   border-top: none;
