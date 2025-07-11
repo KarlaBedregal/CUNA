@@ -124,7 +124,7 @@ export default {
 <style scoped>
 .hero-section {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
+  min-height: calc(100vh - 200px);
   display: flex;
   align-items: center;
   color: white;
@@ -154,9 +154,9 @@ export default {
 }
 
 .features-section {
-  padding-top: 0;
+  padding-top: 10px;
   padding-bottom: 10px;
-  margin-top: -60px;
+  margin-top: -40px; 
 }
 
 .card {
