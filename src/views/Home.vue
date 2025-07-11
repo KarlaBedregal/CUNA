@@ -1,4 +1,3 @@
-<!-- filepath: /home/karla/KARLITA/Cuna API unsa/cuna-frontend/src/views/HomeView.vue -->
 <template>
   <div class="home-view">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -15,7 +14,7 @@
 
     <div class="hero-section">
       <div class="container">
-        <div class="row align-items-center min-vh-100">
+        <div class="row align-items-center" style="min-height: 80vh;">
           <div class="col-md-6">
             <h1 class="display-4 fw-bold text-white">
               🎓 Bienvenido a CUNA UNSA
@@ -32,6 +31,7 @@
               </router-link>
             </div>
           </div>
+
           <div class="col-md-6">
             <div class="text-center">
               <div class="welcome-card">
@@ -45,46 +45,58 @@
                 <div v-if="apiStatus" class="mt-2 alert alert-info">
                   {{ apiStatus }}
                 </div>
+
+                <!-- 🔽 INTEGRANTES -->
+                <div class="mt-4 text-start text-white integrantes-box">
+                  <h5>Integrantes:</h5>
+                  <ul class="mb-0">
+                    <li>Bedregal Coaguila Karla Miluska ----------------------- 100%</li>
+                    <li>Llaique Chullunquia Jack Franco ------------------------ 100%</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <div class="features-section py-5 bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 mb-4">
-            <div class="card h-100">
-              <div class="card-body text-center">
-                <h5 class="card-title">👨‍🎓 Gestión de Estudiantes</h5>
-                <p class="card-text">Administra información completa de estudiantes</p>
+        <!-- 🔽 TARJETAS DENTRO DEL HERO-SECTION -->
+        <div class="features-section mt-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                  <div class="card-body text-center text-white">
+                    <h5 class="card-title">👨‍🎓 Gestión de Estudiantes</h5>
+                    <p class="card-text">Administra información completa de estudiantes</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 mb-4">
+                <router-link to="/teachers" class="text-decoration-none text-white">
+                  <div class="card h-100">
+                    <div class="card-body text-center text-white">
+                      <h5 class="card-title">👨‍🏫 Gestión de Docentes</h5>
+                      <p class="card-text">Control completo del personal docente</p>
+                    </div>
+                  </div>
+                </router-link>
+              </div>
+
+              <div class="col-md-4 mb-4">
+                <router-link to="/courses" class="text-decoration-none text-white">
+                  <div class="card h-100">
+                    <div class="card-body text-center text-white">
+                      <h5 class="card-title">📚 Gestión de Cursos</h5>
+                      <p class="card-text">Administración de cursos y materias</p>
+                    </div>
+                  </div>
+                </router-link>
               </div>
             </div>
           </div>
-      <div class="col-md-4 mb-4">
-        <router-link to="/teachers" class="text-decoration-none text-dark">
-          <div class="card h-100">
-            <div class="card-body text-center">
-              <h5 class="card-title">👨‍🏫 Gestión de Docentes</h5>
-              <p class="card-text">Control completo del personal docente</p>
-            </div>
-          </div>
-        </router-link>
-      </div>
-
-          <div class="col-md-4 mb-4">
-        <router-link to="/courses" class="text-decoration-none text-dark">
-          <div class="card h-100">
-            <div class="card-body text-center">
-              <h5 class="card-title">📚 Gestión de Cursos</h5>
-              <p class="card-text">Administración de cursos y materias</p>
-            </div>
-          </div>
-        </router-link>
-      </div>
         </div>
+        <!-- 🔼 FIN TARJETAS -->
       </div>
     </div>
   </div>
@@ -101,11 +113,10 @@ export default {
     }
   },
   methods: {
-  async testConnection() {
-    // Ya no se usa getWelcome, mostramos mensaje simulado
-    this.apiStatus = '✅ API activa :)'
+    async testConnection() {
+      this.apiStatus = '✅ API activa :)'
+    }
   }
-}
 }
 </script>
 
@@ -115,6 +126,7 @@ export default {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  color: white;
 }
 
 .welcome-card {
@@ -125,10 +137,12 @@ export default {
 }
 
 .features-section {
-  padding: 80px 0;
+  padding: 40px 0;
 }
 
 .card {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
   transition: transform 0.3s;
 }
 
