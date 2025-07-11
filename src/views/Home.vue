@@ -139,13 +139,16 @@ export default {
 .footer {
   background-color: #333;
   color: #eee;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: none;
 }
 
 .features-section {
   padding-top: 0;
-  padding-bottom: 20px;
-  margin-top: -30px;
+  padding-bottom: 10px;
+  margin-top: -60px;
 }
 
 .card {
@@ -157,5 +160,16 @@ export default {
 .card:hover {
   transform: translateY(-5px);
   background: rgba(255, 255, 255, 0.15);
+}
+
+.home-view {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+html, body {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
 }
 </style>
