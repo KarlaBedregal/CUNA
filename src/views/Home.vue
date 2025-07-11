@@ -1,4 +1,5 @@
 <template>
+  <div class="layout-wrapper"></div>
   <div class="home-view">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
@@ -96,6 +97,7 @@
       </div>
     </footer>
   </div>
+
 </template>
 
 <script>
@@ -127,6 +129,12 @@ export default {
   align-items: center;
   color: white;
   padding-bottom: 40px;
+}
+
+.layout-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .welcome-card {
@@ -163,8 +171,8 @@ export default {
 }
 
 .home-view {
+  flex: 1; 
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
 }
 
 html, body {
