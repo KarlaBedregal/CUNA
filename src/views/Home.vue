@@ -14,7 +14,8 @@
 
     <div class="hero-section">
       <div class="container">
-        <div class="row align-items-center" style="min-height: 80vh;">
+        <!-- HERO + SISTEMA ACADÉMICO -->
+        <div class="row align-items-center" style="min-height: 75vh;">
           <div class="col-md-6">
             <h1 class="display-4 fw-bold text-white">
               🎓 Bienvenido a CUNA UNSA
@@ -45,26 +46,30 @@
                 <div v-if="apiStatus" class="mt-2 alert alert-info">
                   {{ apiStatus }}
                 </div>
-
-                <!-- 🔽 INTEGRANTES -->
-                <div class="mt-4 text-start text-white integrantes-box">
-                  <h5>Integrantes:</h5>
-                  <ul class="mb-0">
-                    <li>Bedregal Coaguila Karla Miluska ----------------------- 100%</li>
-                    <li>Llaique Chullunquia Jack Franco ------------------------ 100%</li>
-                  </ul>
-                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- 🔽 TARJETAS DENTRO DEL HERO-SECTION -->
-        <div class="features-section mt-5">
+        <!-- INTEGRANTES (NUEVA TARJETA) -->
+        <div class="row justify-content-center my-4">
+          <div class="col-md-8">
+            <div class="integrantes-card text-dark p-4 rounded shadow">
+              <h5>👥 Integrantes:</h5>
+              <ul class="mb-0">
+                <li>Bedregal Coaguila Karla Miluska ----------------------- 100%</li>
+                <li>Llaique Chullunquia Jack Franco ------------------------ 100%</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- FUNCIONALIDADES (TARJETAS) -->
+        <div class="features-section mt-3">
           <div class="container">
             <div class="row">
               <div class="col-md-4 mb-4">
-                <div class="card h-100">
+                <div class="card h-100" @click="goToLogin" style="cursor: pointer;">
                   <div class="card-body text-center text-white">
                     <h5 class="card-title">👨‍🎓 Gestión de Estudiantes</h5>
                     <p class="card-text">Administra información completa de estudiantes</p>
@@ -73,32 +78,28 @@
               </div>
 
               <div class="col-md-4 mb-4">
-                <router-link to="/teachers" class="text-decoration-none text-white">
-                  <div class="card h-100">
-                    <div class="card-body text-center text-white">
-                      <h5 class="card-title">👨‍🏫 Gestión de Docentes</h5>
-                      <p class="card-text">Control completo del personal docente</p>
-                    </div>
+                <div class="card h-100" @click="goToLogin" style="cursor: pointer;">
+                  <div class="card-body text-center text-white">
+                    <h5 class="card-title">👨‍🏫 Gestión de Docentes</h5>
+                    <p class="card-text">Control completo del personal docente</p>
                   </div>
-                </router-link>
+                </div>
               </div>
 
               <div class="col-md-4 mb-4">
-                <router-link to="/courses" class="text-decoration-none text-white">
-                  <div class="card h-100">
-                    <div class="card-body text-center text-white">
-                      <h5 class="card-title">📚 Gestión de Cursos</h5>
-                      <p class="card-text">Administración de cursos y materias</p>
-                    </div>
+                <div class="card h-100" @click="goToLogin" style="cursor: pointer;">
+                  <div class="card-body text-center text-white">
+                    <h5 class="card-title">📚 Gestión de Cursos</h5>
+                    <p class="card-text">Administración de cursos y materias</p>
                   </div>
-                </router-link>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- 🔼 FIN TARJETAS -->
-      </div>
-    </div>
+
+      </div> <!-- container -->
+    </div> <!-- hero-section -->
   </div>
 </template>
 
@@ -115,6 +116,9 @@ export default {
   methods: {
     async testConnection() {
       this.apiStatus = '✅ API activa :)'
+    },
+    goToLogin() {
+      this.$router.push('/login')
     }
   }
 }
@@ -127,6 +131,7 @@ export default {
   display: flex;
   align-items: center;
   color: white;
+  padding-bottom: 40px;
 }
 
 .welcome-card {
@@ -136,8 +141,12 @@ export default {
   backdrop-filter: blur(10px);
 }
 
+.integrantes-card {
+  background: rgba(255, 255, 255, 0.95);
+}
+
 .features-section {
-  padding: 40px 0;
+  padding: 30px 0;
 }
 
 .card {
@@ -148,5 +157,6 @@ export default {
 
 .card:hover {
   transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
 }
 </style>
