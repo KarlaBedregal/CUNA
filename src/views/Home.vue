@@ -52,15 +52,13 @@
         </div>
 
         <!-- INTEGRANTES -->
-        <div class="row justify-content-center mt-3 mb-1">
-          <div class="col-md-8">
-            <div class="integrantes-card p-3 rounded shadow text-dark text-start">
-              <h5 class="mb-2">👥 Integrantes:</h5>
-              <ul class="mb-0 ps-3">
-                <li>Bedregal Coaguila Karla Miluska ----------------------- 100%</li>
-                <li>Llaique Chullunquia Jack Franco ------------------------ 100%</li>
-              </ul>
-            </div>
+        <div class="d-flex justify-content-center mt-2 mb-2">
+          <div class="integrantes-card p-3 rounded shadow text-dark text-start" style="max-width: 700px; width: 100%;">
+            <h5 class="mb-2">👥 Integrantes:</h5>
+            <ul class="mb-0 ps-3 small">
+              <li>Bedregal Coaguila Karla Miluska ----------------------- 100%</li>
+              <li>Llaique Chullunquia Jack Franco ------------------------ 100%</li>
+            </ul>
           </div>
         </div>
 
@@ -142,14 +140,15 @@ export default {
 }
 
 .integrantes-card {
-  background-color: #7fffd4; /* Aguamarina */
-  border-left: 8px solid #20c997;
+  background-color: #c5f7ec; /* aguamarina suave */
+  border-left: 6px solid #20c997;
   font-weight: 500;
 }
 
 .features-section {
   padding-top: 10px;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
+  margin-top: -10px;
 }
 
 .card {
