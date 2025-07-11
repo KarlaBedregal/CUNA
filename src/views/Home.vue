@@ -51,17 +51,6 @@
           </div>
         </div>
 
-        <!-- INTEGRANTES -->
-        <div class="d-flex justify-content-center mt-2 mb-2">
-          <div class="integrantes-card p-3 rounded shadow text-dark text-start" style="max-width: 700px; width: 100%;">
-            <h5 class="mb-2">👥 Integrantes:</h5>
-            <ul class="mb-0 ps-3 small">
-              <li>Bedregal Coaguila Karla Miluska ----------------------- 100%</li>
-              <li>Llaique Chullunquia Jack Franco ------------------------ 100%</li>
-            </ul>
-          </div>
-        </div>
-
         <!-- FUNCIONALIDADES (TARJETAS) -->
         <div class="features-section mt-3">
           <div class="container">
@@ -98,6 +87,14 @@
 
       </div> <!-- container -->
     </div> <!-- hero-section -->
+    <footer class="footer mt-4 py-3 text-center text-white">
+      <div class="container">
+        <p class="mb-0 small">
+          Hecho por: <strong>Karla Miluska Bedregal Coaguila</strong> (100%) y 
+          <strong>Jack Franco Llaique Chullunquia</strong> (100%)
+        </p>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -139,16 +136,16 @@ export default {
   backdrop-filter: blur(10px);
 }
 
-.integrantes-card {
-  background-color: #c5f7ec; /* aguamarina suave */
-  border-left: 6px solid #20c997;
-  font-weight: 500;
+.footer {
+  background-color: #333;
+  color: #eee;
+  font-size: 0.9rem;
 }
 
 .features-section {
-  padding-top: 10px;
+  padding-top: 0;
   padding-bottom: 20px;
-  margin-top: -10px;
+  margin-top: -30px;
 }
 
 .card {
