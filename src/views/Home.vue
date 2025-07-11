@@ -1,5 +1,5 @@
 <template>
-  <div class="layout-wrapper"></div>
+  <div class="layout-wrapper">
   <div class="home-view">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
@@ -97,7 +97,7 @@
       </div>
     </footer>
   </div>
-
+  </div>
 </template>
 
 <script>
