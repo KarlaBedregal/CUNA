@@ -51,12 +51,12 @@
           </div>
         </div>
 
-        <!-- INTEGRANTES (NUEVA TARJETA) -->
-        <div class="row justify-content-center my-4">
+        <!-- INTEGRANTES -->
+        <div class="row justify-content-center mt-3 mb-1">
           <div class="col-md-8">
-            <div class="integrantes-card text-dark p-4 rounded shadow">
-              <h5>👥 Integrantes:</h5>
-              <ul class="mb-0">
+            <div class="integrantes-card p-3 rounded shadow text-dark text-start">
+              <h5 class="mb-2">👥 Integrantes:</h5>
+              <ul class="mb-0 ps-3">
                 <li>Bedregal Coaguila Karla Miluska ----------------------- 100%</li>
                 <li>Llaique Chullunquia Jack Franco ------------------------ 100%</li>
               </ul>
@@ -142,11 +142,14 @@ export default {
 }
 
 .integrantes-card {
-  background: rgba(255, 255, 255, 0.95);
+  background-color: #7fffd4; /* Aguamarina */
+  border-left: 8px solid #20c997;
+  font-weight: 500;
 }
 
 .features-section {
-  padding: 30px 0;
+  padding-top: 10px;
+  padding-bottom: 30px;
 }
 
 .card {
